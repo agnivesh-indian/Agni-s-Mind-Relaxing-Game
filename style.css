@@ -1,0 +1,86 @@
+/*
+    Customization:
+    - To change the theme, modify the CSS variables in the :root selector.
+    - --primary-color: Background color of the page.
+    - --secondary-color: Color of the breathing circle.
+    - --text-color: Color of the text.
+*/
+:root {
+    --primary-color: #f0f8ff; /* AliceBlue */
+    --secondary-color: #add8e6; /* LightBlue */
+    --text-color: #5f9ea0; /* CadetBlue */
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--primary-color);
+    font-family: sans-serif;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+.breathing-circle {
+    width: 150px;
+    height: 150px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    animation: breath 8s ease-in-out infinite;
+}
+
+@keyframes breath {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.instructions {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+
+#sound-toggle {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--text-color);
+    border-radius: 25px;
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#sound-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .breathing-circle {
+        width: 100px;
+        height: 100px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .instructions {
+        font-size: 1rem;
+    }
+}
